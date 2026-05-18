@@ -14,7 +14,7 @@ import {
   ComponentType,
 } from 'discord.js';
 import 'dotenv/config';
-import { readFileSync, writeFileSync, existsSync } from 'fs';
+import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs';
 import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
 
@@ -23,6 +23,8 @@ const COUNTER_FILE = resolve(__dirname, '../data/counter.json');
 
 // ── ID counter ────────────────────────────────────────────────────────────────
 function getNextId() {
+  const dir = resolve(__dirname, '../data');
+  if (!existsSync(dir)) mkdirSync(dir, { recursive: true });
   let data = { count: 0 };
   if (existsSync(COUNTER_FILE)) {
     data = JSON.parse(readFileSync(COUNTER_FILE, 'utf8'));
