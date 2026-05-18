@@ -1,0 +1,15 @@
+{
+  "name": "foolbug",
+  "version": "1.0.0",
+  "description": "Discord bug reporting bot for game development teams",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "register": "node src/register.js"
+  },
+  "dependencies": {
+    "discord.js": "^14.16.3",
+    "dotenv": "^16.4.5"
+  }
+}
